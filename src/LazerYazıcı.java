@@ -28,8 +28,9 @@ public class LazerYazıcı {
         }
         return kagıtAdedi;
     }
-    public int yazdır(int sayfaadedi){
-        if(sayfaadedi<0)return 0;
-        return ciftYonlu?sayfaadedi/2+sayfaadedi%2:sayfaadedi;
+
+    public int yazdır(int sayfaadedi) {
+        if (sayfaadedi < 0) return 0;
+        return ciftYonlu ? sayfaadedi / 2 + sayfaadedi % 2 : sayfaadedi;
     }
 }
