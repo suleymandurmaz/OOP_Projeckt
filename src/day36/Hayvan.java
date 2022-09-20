@@ -1,10 +1,9 @@
 package day36;
 
 public class Hayvan {
-    public String isim;
-    public int yas;
-    public double agırlık;
-
+    private String isim;
+    private int yas;
+    private double agırlık;
 
     public Hayvan() {
     }
@@ -20,7 +19,6 @@ public class Hayvan {
     }
 
     public void setIsim(String isim) {
-        if(yas>0)
         this.isim = isim;
     }
 
@@ -29,7 +27,8 @@ public class Hayvan {
     }
 
     public void setYas(int yas) {
-        this.yas = yas;
+        if (yas > 0)
+            this.yas = yas;
     }
 
     public double getAgırlık() {
@@ -37,15 +36,34 @@ public class Hayvan {
     }
 
     public void setAgırlık(double agırlık) {
-        if(agırlık>0)
-        this.agırlık = agırlık;
+        if (agırlık > 0)
+            this.agırlık = agırlık;
     }
 
-    public void sesVer(){
-        System.out.println("hayvan ses veriyor");
+    public void sesVer() {
+        System.out.println(getIsim() + "hayvan ses veriyor");
 
     }
-    public void beslen(){
-        System.out.println("hayvan besleniyor");
+
+    public void beslen() {
+        System.out.println(getIsim() + "hayvan besleniyor");
+
+
+
     }
-}
+    @Override
+    public boolean equals(Object obj) {
+        Hayvan hayvan=(Hayvan) obj;
+        boolean result = this.getIsim().equals(hayvan.getIsim());
+        result &= this.getYas() == hayvan.getYas();
+        result &= this.getAgırlık() == hayvan.getAgırlık();
+        return result;
+    }
+    @Override
+    public String toString() {
+        return String.format("%s-%d-%5.2f", isim, yas, agırlık);
+    }
+
+
+    }
+
